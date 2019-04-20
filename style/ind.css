@@ -1,0 +1,213 @@
+body {
+   background-color: black;
+   margin: 0px;
+}
+
+#main {
+   font-size: 0;
+   max-width:     900px;
+   margin-left:   auto;
+   margin-right:  auto;
+   border-radius: 0px 0px 4px 4px;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav-bar {
+   font-size: 24px;
+   background-color:    black;
+   padding-right: 12px;
+   text-align: right;
+   padding:             4px;
+   color:                rgb(255, 255, 255);
+}
+
+#nav-bar a {
+   text-decoration: none;
+   color:                rgb(255, 255, 255);
+}
+
+#profLinks a {
+   transition-duration: 200ms;
+}
+
+#profLinks a:hover{
+   transition-duration: 200ms;
+   color: #888;
+}
+
+/* #nav-bar a:hover{
+   text-decoration: underline;
+} */
+
+#title {
+   display: block;
+   text-align: center;
+}
+
+#fnameA{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 24px;
+   color: #444;
+   transition-duration: 200ms;
+   margin-bottom: -26px;
+   margin-right: 4px;
+}
+
+#fnameB{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 24px;
+   color: #DDD;
+   transition-duration: 200ms;
+}
+
+#fnameB:hover{
+   color: #AAA;
+   transition-duration: 200ms;
+   margin-right: -8px;
+}
+
+#profLinks {
+   text-align: center;
+}
+
+/* content */
+#content{
+   color: #AAA;
+}
+
+#left-navbar{
+   font-size: 18px;
+   display: inline-block;
+   width: 250px;
+   margin: 0px;
+}
+
+.linklist {
+   list-style-type: none;
+   text-align: right;
+   margin: 0px 4px 1px 2px;
+   background-image: linear-gradient(to right, black, #222);
+   padding: 8px 6px;
+   transition-duration: 300ms;
+}
+
+.linklist:hover {
+   margin-right: 12px;
+   transition-duration: 200ms;
+   padding: 8px 12px;
+   background-image: linear-gradient(to right, black, #444);
+   cursor: pointer;
+}
+
+h2 {
+   font-size: 18px;
+}
+
+a {
+   color: white;
+}
+
+a:visited {
+   color: #666;
+}
+
+#entry-display{
+   font-size: 12px;
+   display: inline-block;
+   height: auto;
+   vertical-align: top;
+   width: 600;
+   margin: 0px;
+   padding: 16px;
+   background-image: linear-gradient(to right, #111, black);
+   height: 100%;
+}
+
+#hometext{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 32px;
+   text-align: center;
+   width: 70%;
+}
+
+
+/* portfolio entries */
+
+#pview-heading {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 22px;
+   color: #DDD;
+   text-align: right;
+   /* background-image: linear-gradient(to left, #444, #222); */
+   border-bottom: 1px solid #333;
+   padding: 6px 14px 6px 0px;
+}
+
+#pview-discipline {
+   display: none;
+}
+
+#pview-type {
+   display: none;
+}
+
+#pview-description {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 16px;
+   padding: 8px;
+
+}
+
+#pview-pLinks {
+   margin: 8px;
+}
+
+#pview-dLink, #pview-gLink {
+   font-size: 24px;
+   margin: 2px;
+   color: #AAA;
+   transition-duration: 200ms;
+}
+
+#pview-dLink:hover, #pview-gLink:hover {
+   color: #444;
+   transition-duration: 200ms;
+}
+
+textarea {
+   resize: vertical;
+   font-size: 10px;
+   width: 100%;
+   height: 200px;
+   background-color  :rgba(0,0,0,0);
+   color: #757575;
+   border: 1px solid #333;
+   border-radius: 8px;
+   padding: 8px;
+}
+
+textarea:focus {
+   outline: none;
+}
+
+/* width */
+textarea::-webkit-scrollbar {
+   width: 6px;
+ }
+ 
+ /* Track */
+ textarea::-webkit-scrollbar-track {
+   background: #555; 
+ }
+  
+ /* Handle */
+ textarea::-webkit-scrollbar-thumb {
+   background: #AAA;
+   width: 14px;
+ }
+ 
+ /* Handle on hover */
+ textarea::-webkit-scrollbar-thumb:hover {
+   background: #EEE;
+   width: 14px;
+ }
