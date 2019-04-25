@@ -36,18 +36,7 @@ function stringifyPData(pIndex) {
    if (portfolio[pIndex].ptCode != ""){
       str += "\t<div id=\"pview-code\">Code Snippet:<br>\n\t\t<textarea id=\"pview-ctextbox\""; 
       str += "spellcheck=\"false\" readonly>\n" +  portfolio[pIndex].ptCode + "\n\t\t</textarea>\n\t</div>\n";
-   }
-
-   // File List
-   str += "\t<div id = \"pview-files\">";
-   
-   if ((portfolio[pIndex].pdlFile).length > 0)
-      (portfolio[pIndex].pdlFile).forEach((linkStr)=>{
-         str += "\t\t<a href=\"" + linkStr + "\">FILE</a>\"";
-      })
-
-   str += "\t</div>\n"
-   
+   }   
 
    // portfolio links
    str += "\t<div id=\"pview-pLinks\">\n"

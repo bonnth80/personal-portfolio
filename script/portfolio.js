@@ -13,7 +13,7 @@ console.log("portfolio.js: script connected");
    pImage:        image displayed in the info preview image
    ghLink:        github link
    demoLink:      demo link
-   pdlFile:       array of files for download (portfolio download file)
+   pdlFile:       array of files for download (portfolio download file) - removeFeature
 ******************************************************************************/
 var portfolio=[];
 
@@ -61,53 +61,139 @@ portfolio[elTrack++] = {
 `,
    pImage: null,
    ghLink: "https://github.com/bonnth80/game-of-life",
-   demoLink: "http://tbonner.atwebpages.com/gol/gol.html",
-   pdlFile: []
+   demoLink: "http://tbonner.atwebpages.com/gol/gol.html"
 }
 
 // Perlin Noise Generator
 portfolio[elTrack++] = {
-   pid: "perlineNoise",
+   pid: "perlin",
    pTitle: "Perlin Noise",
-   pHeading: "2d Perlin Noise Generator",
+   pHeading: "Perlin Noise Generator",
    discipline: "programming",
    tType: "JavaScript",
-   pDesc: "This is my perlin noise study. Learn more about <a href=\"https://en.wikipedia.org/wiki/Perlin_Noise\">Perlin Noise.</a>",
-   ptCode: "",
-   pImage: null,
-   ghLink: "",
-   demoLink: "",
-   pdlFile: []
+   pDesc: `This program generates random two dimensional perlin noise. You can learn about more about perlin noise here: <a href="https://en.wikipedia.org/wiki/Perlin_noise">https://en.wikipedia.org/wiki/Perlin_noise</a>`,
+   ptCode: `function scaleTotalForChart(){
+	var scaledSet = [];
+	var totalMaxVal = L1_MAX+L2_MAX+L3_MAX+L4_MAX;
+
+	for (var i = 0; i < NUM_DATA_POINTS; i++){
+		scaledSet[i] = perlinSetData[4][i]*(200/totalMaxVal);
+	}
+
+	return scaledSet;
 }
 
-// Ohms Law
+function lerp(a,b,f) 
+{
+    return (a * (1.0 - f)) + (b * f);
+}
+
+function lerpSet(set, interval) {
+	var mySet = set;
+	for (var i = 0; i < mySet.length-1; i++){
+		mySet[i] = lerp(mySet[Math.floor(i/interval)*interval],mySet[Math.floor(i/interval+1)*interval],(i%interval)/interval);
+		//console.log(mySet[i]);
+	}
+	return mySet;
+}`,
+   pImage: null,
+   ghLink: "https://github.com/bonnth80/perlin",
+   demoLink: "http://tbonner.atwebpages.com/noise/index.html",
+}
+
+// Ohm's Law
 portfolio[elTrack++] = {
-   pid: "ohmslaw",
+   pid: "ohm",
    pTitle: "Ohm's Law",
-   pHeading: "Ohm's Law",
+   pHeading: "Ohm's Law Calculator",
    discipline: "programming",
    tType: "JavaScript",
-   pDesc: "Simple interface for gettin resistance, voltage, and current. Learn more about <a href=\"https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Ohm%27s_law\">Ohm's Law.</a>",
-   ptCode: "",
+   pDesc: `This program calculates circuit voltage, current, and resistance base on Ohm's Law, which you can learn more about here: <a href="https://en.wikipedia.org/wiki/Ohm%27s_law">Ohm's Law</a>`,
+   ptCode: `function updateValues(preserveElement) {
+            switch (preserveElement.id) {
+                case "input-power":
+                    console.log("You cannot change the Wattage");
+                    break;
+                case "input-current":
+                    current = preserveElement.value;
+                    voltage = current * resistance;
+                    power = voltage * current;
+                    break;
+                case "input-resistance":
+                    resistance = preserveElement.value;
+                    current = voltage / resistance;
+                    power = voltage * current;
+                    break;
+                case "input-voltage":
+                    voltage = preserveElement.value;
+                    current = voltage / resistance;
+                    power = voltage * current;
+                    break;
+                default:
+                    break;
+            }`,
    pImage: null,
-   ghLink: "",
-   demoLink: "",
-   pdlFile: []
+   ghLink: "https://github.com/bonnth80/ohms-law",
+   demoLink: "http://tbonner.atwebpages.com/Ohmslaw/index.html",
 }
 
-// Resistor Color Decoder
+// Resistor Decoder
 portfolio[elTrack++] = {
-   pid: "resistance",
+   pid: "resistor",
    pTitle: "Resistor Decoder",
    pHeading: "Resistor Color Code Decoder",
    discipline: "programming",
    tType: "JavaScript",
-   pDesc: "I got bored one day in DC class when the teacher was talking about resistor color codes and I wanted to see if I could design and develop this decoder within the time of the 3-hour class. I might have actually finishd it if I had started when the class started. Learn more about <a href=\"https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Electronic_color_code\">Resistor Codes.</a>",
-   ptCode: "",
+   pDesc: `This is a resistor color band decoder/encoder/interpreter. You can learn more about resistor color bands here: <a href="https://en.wikipedia.org/wiki/Electronic_color_code">Resistor Code</a>`,
+   ptCode: `var resistance = {
+    val: 4700,
+    fromENot: function(eNot){        
+        var baseVal = 0.0;
+        try{
+            baseVal = parseFloat(eNot);
+        } catch(e) {
+            console.warn("script.js: Could not parse Notation field.");
+            console.warn("script.js: " + e);
+            return NaN;
+        }
+        
+        for (var i = 0; i < eNot.length; i++) {
+            if (isNaN(eNot[i])){
+                
+                switch (eNot[i]) {
+                    case 'G':
+                        baseVal *= 1000;
+                    case 'M':
+                        baseVal *= 1000;
+                    case 'k':
+                        baseVal *= 1000;
+                    case ' ':
+                    case '.':
+                        break;
+                    default:
+                        console.warn("script.js: resistance: could not parse notation field, baseVal: " + baseVal);
+                        console.warn("script.js: resistance: last element evaluate: " + i + " on " + eNot + ": " + eNot[i]);
+                        return NaN;
+                }
+            }
+        }
+
+        this.val = baseVal;
+
+        return this.val;
+    },
+    fromMM: function(min, max){
+        this.val = (min + max)/2
+        return this.val;
+    },
+    fromBands: function(band1, band2, band3){
+        this.val = ((band1 *10) + band2)*(band3);
+        return this.val;
+    }
+}`,
    pImage: null,
-   ghLink: "",
-   demoLink: "",
-   pdlFile: []
+   ghLink: "https://github.com/bonnth80/resistor",
+   demoLink: "http://tbonner.atwebpages.com/resistance/index.html",
 }
 
 
