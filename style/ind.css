@@ -151,6 +151,7 @@ a:visited {
    width: 70%;
    transition-duration: 200ms;
    margin-left: 4px;
+   cursor: pointer;
 }
 
 #splashLink {
