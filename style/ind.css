@@ -123,11 +123,38 @@ a:visited {
    height: 100%;
 }
 
-#hometext{
+#hometext {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   font-size: 32px;
+   font-size: 22px;
+   text-align: center;
+   color: #444;
+   width: 70%;
+   transition-duration: 200ms;
+   margin-bottom: -46px;
+   margin-left: -2px;
+}
+
+#hometextB {
+   color: #AAA;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 22px;
    text-align: center;
    width: 70%;
+   transition-duration: 200ms;
+}
+
+#hometextB:hover {
+   color: #CCC;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 22px;
+   text-align: center;
+   width: 70%;
+   transition-duration: 200ms;
+   margin-left: 4px;
+}
+
+#splashLink {
+   text-decoration: none;
 }
 
 

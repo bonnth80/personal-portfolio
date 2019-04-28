@@ -15,6 +15,19 @@ console.log("portfolio.js: script connected");
    demoLink:      demo link
    pdlFile:       array of files for download (portfolio download file) - removeFeature
 ******************************************************************************/
+
+var hTextList = [
+    "iCodeForFun", "b-guh?", "will you run a touch() event on me?", "there's lollercopters in my underwear!!!",
+    "was it something I said?", "1337!", "You can't handle the - well, maybe..", "^_^",
+    "4, 8, 15, 16, 23, 42", "2C00L", "it's dangerous to go alone", "cats and dogs living together!",
+    "in the pipe, five-by-five", "get to the choppa!", "enhance sector F3", "engage!",
+    "make it so", "for science!", "do science to it", "are you the gatekeeper?", "I'm Zero Cool!",
+    "covfefe", "they're here", "oh I'm sorry, did I break our concentration", "we don't need no stinking badges",
+    "why are you still clicking this?", "whaddya mean funny?", "would you like to play a game?",
+    "I'm sorry, I can't do that, Dave", "Why is Gamora?!", "We are Groot", "For you...", "Hasta la vista, baby",
+    "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoo Boing!"
+ ]
+ 
 var portfolio=[];
 
 var elTrack = 0; // used to keep track of p elements, so if we rearrange or insert new
