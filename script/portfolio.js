@@ -25,9 +25,10 @@ var hTextList = [
     "covfefe", "they're here", "oh I'm sorry, did I break our concentration", "we don't need no stinking badges",
     "why are you still clicking this?", "whaddya mean I'm funny?", "would you like to play a game?",
     "I'm sorry, I can't do that, Dave", "Why is Gamora?!", "We are Groot", "For you...", "Hasta la vista, baby",
-    "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoo Boing!", "There are 10 types of people...",
+    "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoom Boing!", "There are 10 types of people...",
     "I understood that reference", "Tank you", "so gentlemen, we meet again", "He chose... poorly", "Winter is coming",
-    "The Dude abides", "I\"m a Dapper Dan man!", "You know what ol Jack Burton always says"
+    "The Dude abides", "I\"m a Dapper Dan man!", "You know what ol Jack Burton always says", "iddqd", "idkfa",
+    "how do you turn this on?", "1.21 Gigawatts?!", "radio free zerg", "there is no cow level"
  ]
  
 var portfolio=[];
@@ -87,29 +88,23 @@ portfolio[elTrack++] = {
    discipline: "programming",
    tType: "JavaScript",
    pDesc: `This program generates random two dimensional perlin noise. You can learn about more about perlin noise here: <a href="https://en.wikipedia.org/wiki/Perlin_noise">https://en.wikipedia.org/wiki/Perlin_noise</a>`,
-   ptCode: `function scaleTotalForChart(){
-	var scaledSet = [];
-	var totalMaxVal = L1_MAX+L2_MAX+L3_MAX+L4_MAX;
+   ptCode: `function generateLayer(objectX) {
+	var set = [];
+	var nextVal = Math.floor(Math.random() * (objectX.max - objectX.min) + objectX.min);;
+	var currentVal = 0.0;
+	set[0] = currentVal;
 
-	for (var i = 0; i < NUM_DATA_POINTS; i++){
-		scaledSet[i] = perlinSetData[4][i]*(200/totalMaxVal);
+	for (var i = 0; i <= appController.numDataPoints; i += 1){		
+		if (i % objectX.interval == 0){
+			set[i] = currentVal = nextVal;
+			nextVal = Math.floor(Math.random() * (objectX.max - objectX.min) + objectX.min);
+		}
+		else {			
+			set[i] = lerp(currentVal,nextVal,(i % objectX.interval / objectX.interval));
+		}
 	}
 
-	return scaledSet;
-}
-
-function lerp(a,b,f) 
-{
-    return (a * (1.0 - f)) + (b * f);
-}
-
-function lerpSet(set, interval) {
-	var mySet = set;
-	for (var i = 0; i < mySet.length-1; i++){
-		mySet[i] = lerp(mySet[Math.floor(i/interval)*interval],mySet[Math.floor(i/interval+1)*interval],(i%interval)/interval);
-		//console.log(mySet[i]);
-	}
-	return mySet;
+	return set;
 }`,
    pImage: null,
    ghLink: "https://github.com/bonnth80/perlin",
