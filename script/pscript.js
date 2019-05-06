@@ -9,10 +9,14 @@ let splashTextB = document.getElementById("hometextB");
 // *******************************************
 // Splash Text
 // *******************************************
-function setSplash() {
-   var randText = Math.floor(Math.random()*(hTextList.length));
-   splashText.innerHTML = hTextList[randText];
-   splashTextB.innerHTML = hTextList[randText];
+function setSplash(testString = "") {
+   if (testString == ""){
+      var randText = Math.floor(Math.random()*(hTextList.length));
+      splashText.innerHTML = splashTextB.innerHTML = hTextList[randText];
+   }
+   else {
+      splashText.innerHTML = splashTextB.innerHTML = testString;
+   }
 }
 
 setSplash();

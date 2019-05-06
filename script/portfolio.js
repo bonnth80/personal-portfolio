@@ -20,12 +20,14 @@ var hTextList = [
     "iCodeForFun", "b-guh?", "will you run a touch() event on me?", "there's lollercopters in my underwear!!!",
     "was it something I said?", "1337!", "You can't handle the - well, maybe..", "^_^",
     "4, 8, 15, 16, 23, 42", "2C00L", "it's dangerous to go alone", "cats and dogs living together!",
-    "in the pipe, five-by-five", "get to the choppa!", "enhance sector F3", "engage!",
+    "in the pipe, five-by-five", "get to the choppa!", "prepare for... ludicrous speed!", "engage",
     "make it so", "for science!", "do science to it", "are you the gatekeeper?", "I'm Zero Cool!",
     "covfefe", "they're here", "oh I'm sorry, did I break our concentration", "we don't need no stinking badges",
-    "why are you still clicking this?", "whaddya mean funny?", "would you like to play a game?",
+    "why are you still clicking this?", "whaddya mean I'm funny?", "would you like to play a game?",
     "I'm sorry, I can't do that, Dave", "Why is Gamora?!", "We are Groot", "For you...", "Hasta la vista, baby",
-    "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoo Boing!"
+    "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoo Boing!", "There are 10 types of people...",
+    "I understood that reference", "Tank you", "so gentlemen, we meet again", "He chose... poorly", "Winter is coming",
+    "The Dude abides", "I\"m a Dapper Dan man!", "You know what ol Jack Burton always says"
  ]
  
 var portfolio=[];
