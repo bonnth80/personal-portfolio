@@ -90,7 +90,7 @@ portfolio[elTrack++] = {
    pDesc: `This program generates random two dimensional perlin noise. You can learn about more about perlin noise here: <a href="https://en.wikipedia.org/wiki/Perlin_noise">https://en.wikipedia.org/wiki/Perlin_noise</a>`,
    ptCode: `function generateLayer(objectX) {
 	var set = [];
-	var nextVal = Math.floor(Math.random() * (objectX.max - objectX.min) + objectX.min);;
+	var nextVal = Math.floor(Math.random() * (objectX.max - objectX.min) + objectX.min);
 	var currentVal = 0.0;
 	set[0] = currentVal;
 
