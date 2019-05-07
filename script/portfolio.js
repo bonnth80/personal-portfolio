@@ -119,29 +119,34 @@ portfolio[elTrack++] = {
    discipline: "programming",
    tType: "JavaScript",
    pDesc: `This program calculates circuit voltage, current, and resistance base on Ohm's Law, which you can learn more about here: <a href="https://en.wikipedia.org/wiki/Ohm%27s_law">Ohm's Law</a>`,
-   ptCode: `function updateValues(preserveElement) {
-            switch (preserveElement.id) {
-                case "input-power":
-                    console.log("You cannot change the Wattage");
-                    break;
-                case "input-current":
-                    current = preserveElement.value;
-                    voltage = current * resistance;
-                    power = voltage * current;
-                    break;
-                case "input-resistance":
-                    resistance = preserveElement.value;
-                    current = voltage / resistance;
-                    power = voltage * current;
-                    break;
-                case "input-voltage":
-                    voltage = preserveElement.value;
-                    current = voltage / resistance;
-                    power = voltage * current;
-                    break;
-                default:
-                    break;
-            }`,
+   ptCode: `//update values
+   function updateValues(preserveElement) {
+      switch (preserveElement.id) {
+            case "input-power":
+               console.log("script.js: updateValues() - Invalid update");
+               break;
+            case "input-current":
+               current = preserveElement.value;
+               btnRefreshButtons[0].unhide();
+               btnRefreshButtons[2].unhide();
+               break;
+            case "input-resistance":
+               resistance = preserveElement.value;
+               btnRefreshButtons[0].unhide();
+               btnRefreshButtons[1].unhide();
+               break;
+            case "input-voltage":
+               voltage = preserveElement.value;
+               btnRefreshButtons[1].unhide();
+               btnRefreshButtons[2].unhide();
+               break;
+            default:
+               alert("You can't see this window because it will never appear.");
+               break;
+      }
+   
+      modifiedValue = preserveElement;
+   }`,
    pImage: null,
    ghLink: "https://github.com/bonnth80/ohms-law",
    demoLink: "http://tbonner.atwebpages.com/Ohmslaw/index.html",
