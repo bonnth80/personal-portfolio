@@ -27,8 +27,10 @@ var hTextList = [
     "I'm sorry, I can't do that, Dave", "Why is Gamora?!", "We are Groot", "For you...", "Hasta la vista, baby",
     "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoom Boing!", "There are 10 types of people...",
     "I understood that reference", "Tank you", "so gentlemen, we meet again", "He chose... poorly", "Winter is coming",
-    "The Dude abides", "I\"m a Dapper Dan man!", "You know what ol Jack Burton always says", "iddqd", "idkfa",
-    "how do you turn this on?", "1.21 Gigawatts?!", "radio free zerg", "there is no cow level"
+    "The Dude abides", "I\'m a Dapper Dan man!", "You know what ol Jack Burton always says", "iddqd", "idkfa",
+    "how do you turn this on?", "1.21 Gigawatts?!", "radio free zerg", "there is no cow level", "retliculating splines...",
+    "removed Herobrine", "B A B A ↑ ↓ B A → ← B A start", "OMG, you killed Kenny!", "I am very confusing!",
+    "yep, that's a cow alright", ""
  ]
  
 var portfolio=[];
