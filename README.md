@@ -1,3 +1,3 @@
 # My programming portfolio
 
-Work in progress, not yet published
+Always a work in progress
