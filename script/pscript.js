@@ -74,8 +74,11 @@ function stringifyPData(pIndex) {
    if ((portfolio[pIndex]).ghLink != "")
       str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).ghLink + "\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n"
 
-   str += "\t</div>\n"
+   // download link
+   if ((portfolio[pIndex]).dlLink != "")
+      str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).dlLink + "\" target=\"_blank\"><i class=\"fas fa-file-download\"></i></a>\n"
 
+   str += "\t</div>\n"
 
    str += "</div>\n";
 

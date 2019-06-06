@@ -47,7 +47,7 @@ portfolio[elTrack++] = {
    pHeading: "Game of Life in C++",
    discipline: "programming",
    tType: "C++, Windows GDI",
-   pDesc: `Conway's Game of Life project. Written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming.`,
+   pDesc: `Another Conway's Game of Life project. Written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming.`,
    ptCode: `void CensusController::stepForward() {
 	std::vector<Cell *> toggleList;
 	int nCounter = 0;
@@ -74,6 +74,7 @@ portfolio[elTrack++] = {
    pImage: null,
    ghLink: "https://github.com/bonnth80/gol-cpp",
    demoLink: "",
+   dlLink: "https://github.com/bonnth80/gol-cpp/raw/master/exe/GoLPP.exe"
 }
 
 // Conway's Game of Life
@@ -117,7 +118,8 @@ portfolio[elTrack++] = {
 `,
    pImage: null,
    ghLink: "https://github.com/bonnth80/game-of-life",
-   demoLink: "http://tbonner.atwebpages.com/gol/gol.html"
+   demoLink: "http://tbonner.atwebpages.com/gol/gol.html",
+   dlLink: ""
 }
 
 // Perlin Noise Generator
@@ -149,6 +151,7 @@ portfolio[elTrack++] = {
    pImage: null,
    ghLink: "https://github.com/bonnth80/perlin",
    demoLink: "http://tbonner.atwebpages.com/noise/index.html",
+   dlLink: ""
 }
 
 // Ohm's Law
@@ -190,6 +193,7 @@ portfolio[elTrack++] = {
    pImage: null,
    ghLink: "https://github.com/bonnth80/ohms-law",
    demoLink: "http://tbonner.atwebpages.com/Ohmslaw/index.html",
+   dlLink: ""
 }
 
 // Resistor Decoder
@@ -249,4 +253,5 @@ portfolio[elTrack++] = {
    pImage: null,
    ghLink: "https://github.com/bonnth80/resistor",
    demoLink: "http://tbonner.atwebpages.com/resistance/index.html",
+   dlLink: ""
 }
