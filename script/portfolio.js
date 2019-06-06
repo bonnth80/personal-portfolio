@@ -47,7 +47,7 @@ portfolio[elTrack++] = {
    pHeading: "Game of Life in C++",
    discipline: "programming",
    tType: "C++, Windows GDI",
-   pDesc: `Another Conway's Game of Life project. Written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming.`,
+   pDesc: `Conway's Game of Life project written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming. Learn more about <a href=\"https://en.wikipedia.org/wiki/Game_of_Life\">Conway's Game of Life.</a>`,
    ptCode: `void CensusController::stepForward() {
 	std::vector<Cell *> toggleList;
 	int nCounter = 0;
@@ -84,7 +84,7 @@ portfolio[elTrack++] = {
    pHeading: "Conway's Game of Life JavaScript",
    discipline: "programming",
    tType: "JavaScript",
-   pDesc: "Another Conway's Game of Life in JavaScript. Learn more about <a href=\"https://en.wikipedia.org/wiki/Game_of_Life\">Conway's Game of Life.</a>",
+   pDesc: "Another Conway's Game of Life now in JavaScript. Learn more about <a href=\"https://en.wikipedia.org/wiki/Game_of_Life\">Conway's Game of Life.</a>",
    ptCode: `function calcNextStep(censusManager = censusManager) {
 
       clearToggleList(censusManager);
