@@ -213,4 +213,38 @@ portfolio[elTrack++] = {
    demoLink: "http://tbonner.atwebpages.com/resistance/index.html",
 }
 
+// GoL CPP
+portfolio[elTrack++] = {
+   pid: "golcpp",
+   pTitle: "Game of Life C++",
+   pHeading: "Game of Life in C++",
+   discipline: "programming",
+   tType: "C++, Windows GDI",
+   pDesc: `Another Conway's Game of Life project. Written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming.`,
+   ptCode: `void CensusController::stepForward() {
+	std::vector<Cell *> toggleList;
+	int nCounter = 0;
 
+	Cell *c;
+	for (int y = 0; y < GridHeight_; y++) {
+		for (int x = 0; x < GridWidth_; x++) {
+			nCounter = 0;
+			c = CellGrid_[y]->getCellAt(x);
+
+			for (int n = 0; n < 8; n++)
+				nCounter += (c->getNeighbor(n) != nullptr && c->getNeighbor(n)->getIsAlive());
+
+			if ((c->getIsAlive() && (nCounter < 2 || nCounter > 3))
+				|| (!(c->getIsAlive()) && nCounter == 3))
+					toggleList.push_back(c);
+		}
+	}
+
+	for (unsigned int t = 0; t < toggleList.size(); t++) {
+		toggleList[t]->toggleIsAlive();
+	}
+}`,
+   pImage: null,
+   ghLink: "https://github.com/bonnth80/gol-cpp",
+   demoLink: "",
+}
