@@ -226,6 +226,8 @@ a:visited {
 #pview-clickHint {
    font-size: 20px;
    margin-left: 20px;
+   transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+   transition-duration: 200ms;
 }
 
 textarea {
