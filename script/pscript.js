@@ -53,6 +53,7 @@ for (let i = 0; i < lItems.length; i++) {
 
 function stringifyPData(pIndex) {
    let str = "<div>\n"
+   let hasLinks = false;
 
    str += "<div id=\"pview-lineHead\">";
 
@@ -83,16 +84,23 @@ function stringifyPData(pIndex) {
    str += "\t<div id=\"pview-pLinks\">\n"
 
    // direct link
-   if ((portfolio[pIndex]).demoLink != "")
+   if ((portfolio[pIndex]).demoLink != ""){
+      hasLinks = true;
       str += "\t\t<a id=\"pview-dLink\" href=\"" + (portfolio[pIndex]).demoLink + "\" target=\"_blank\"><i class=\"fas fa-external-link-alt\"></i></a>\n"
-   
+   }
    // github link
-   if ((portfolio[pIndex]).ghLink != "")
+   if ((portfolio[pIndex]).ghLink != ""){
+      hasLinks = true;
       str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).ghLink + "\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n"
-
+}
    // download link
-   if ((portfolio[pIndex]).dlLink != "")
+   if ((portfolio[pIndex]).dlLink != ""){
+      hasLinks = true;
       str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).dlLink + "\" target=\"_blank\"><i class=\"fas fa-file-download\"></i></a>\n"
+}
+   // click hint
+   if (hasLinks)
+      str += "<span id=\"pview-clickHint\"><i class=\"fas fa-arrow-left\"></i> Links here!</span>";
 
    str += "\t</div>\n"
 

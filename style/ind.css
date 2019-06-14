@@ -223,6 +223,11 @@ a:visited {
    transition-duration: 200ms;
 }
 
+#pview-clickHint {
+   font-size: 20px;
+   margin-left: 20px;
+}
+
 textarea {
    resize: vertical;
    font-size: 12px;
