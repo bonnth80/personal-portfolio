@@ -161,21 +161,42 @@ a:visited {
 
 /* portfolio entries */
 
+
+#pview-lineHead {
+   border-bottom: 1px solid #333;
+   padding: 6px 14px 6px 0px;
+   display: block;
+}
+
+#pview-types {
+   display: inline-block;
+   width: 20%;
+   font-size: 25px;
+   color: #DDD;
+}
+
+.pview-svgicon {
+   fill: #DDD;
+   stroke: #DDD;
+   height: 25px;
+   width: 25px;
+   vertical-align: top;
+}
+
+.pview-typeicon {
+}
+
 #pview-heading {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 22px;
-   color: #DDD;
+   display: inline-block;
+   width: 75%;
    text-align: right;
+   color: #DDD;
    /* background-image: linear-gradient(to left, #444, #222); */
-   border-bottom: 1px solid #333;
-   padding: 6px 14px 6px 0px;
 }
 
 #pview-discipline {
-   display: none;
-}
-
-#pview-type {
    display: none;
 }
 

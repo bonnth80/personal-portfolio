@@ -30,7 +30,7 @@ var hTextList = [
     "The Dude abides", "I\'m a Dapper Dan man!", "You know what ol Jack Burton always says", "iddqd", "idkfa",
     "how do you turn this on?", "1.21 Gigawatts?!", "radio free zerg", "there is no cow level", "reticulating splines...",
     "removed Herobrine", "B A B A ↑ ↓ B A → ← B A start", "OMG, you killed Kenny!", "I am very confusing!",
-    "yep, that's a cow alright", ""
+    "yep, that's a cow alright"
  ]
  
 var portfolio=[];
@@ -46,7 +46,7 @@ portfolio[elTrack++] = {
    pTitle: "Game of Life C++",
    pHeading: "Game of Life in C++",
    discipline: "programming",
-   tType: "C++, Windows GDI",
+   tType: ["C++", "Windows GDI"],
    pDesc: `Conway's Game of Life project written in C++ using the Windows API and WinGDI. This was the first project I used to learn the Windows API and basic graphics programming. Learn more about <a href=\"https://en.wikipedia.org/wiki/Game_of_Life\">Conway's Game of Life.</a>`,
    ptCode: `void CensusController::stepForward() {
 	std::vector<Cell *> toggleList;
@@ -83,7 +83,7 @@ portfolio[elTrack++] = {
    pTitle: "Game of Life JS",
    pHeading: "Conway's Game of Life JavaScript",
    discipline: "programming",
-   tType: "JavaScript",
+   tType: ["HTML","CSS","JavaScript"],
    pDesc: "Another Conway's Game of Life now in JavaScript. Learn more about <a href=\"https://en.wikipedia.org/wiki/Game_of_Life\">Conway's Game of Life.</a>",
    ptCode: `function calcNextStep(censusManager = censusManager) {
 
@@ -128,7 +128,7 @@ portfolio[elTrack++] = {
    pTitle: "Perlin Noise",
    pHeading: "Perlin Noise Generator",
    discipline: "programming",
-   tType: "JavaScript",
+   tType: ["HTML","CSS","JavaScript"],
    pDesc: `This program generates random two dimensional perlin noise. You can learn about more about perlin noise here: <a href="https://en.wikipedia.org/wiki/Perlin_noise">https://en.wikipedia.org/wiki/Perlin_noise</a>`,
    ptCode: `function generateLayer(objectX) {
 	var set = [];
@@ -160,7 +160,7 @@ portfolio[elTrack++] = {
    pTitle: "Ohm's Law",
    pHeading: "Ohm's Law Calculator",
    discipline: "programming",
-   tType: "JavaScript",
+   tType: ["HTML","CSS","JavaScript"],
    pDesc: `This program calculates circuit voltage, current, and resistance base on Ohm's Law, which you can learn more about here: <a href="https://en.wikipedia.org/wiki/Ohm%27s_law">Ohm's Law</a>`,
    ptCode: `//update values
    function updateValues(preserveElement) {
@@ -202,7 +202,7 @@ portfolio[elTrack++] = {
    pTitle: "Resistor Decoder",
    pHeading: "Resistor Color Code Decoder",
    discipline: "programming",
-   tType: "JavaScript",
+   tType: ["HTML","CSS","JavaScript"],
    pDesc: `This is a resistor color band decoder/encoder/interpreter. You can learn more about resistor color bands here: <a href="https://en.wikipedia.org/wiki/Electronic_color_code">Resistor Code</a>`,
    ptCode: `var resistance = {
     val: 4700,
