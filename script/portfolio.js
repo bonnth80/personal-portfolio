@@ -21,8 +21,8 @@ var hTextList = [
     "was it something I said?", "1337!", "You can't handle the - well, maybe..", "^_^",
     "4, 8, 15, 16, 23, 42", "2C00L", "it's dangerous to go alone", "cats and dogs living together!",
     "in the pipe, five-by-five", "get to the choppa!", "prepare for... ludicrous speed!", "engage",
-    "make it so", "for science!", "do science to it", "are you the gatekeeper?", "I'm Zero Cool!",
-    "covfefe", "they're here", "oh I'm sorry, did I break our concentration", "we don't need no stinking badges",
+    "make it so", "for science!", "do science to it", "are you the gatekeeper?", "I\'m Zero Cool!",
+    "covfefe", "they're here", "oh I'm sorry, did I break our concentration", "we don\'t need no stinking badges",
     "why are you still clicking this?", "whaddya mean I'm funny?", "would you like to play a game?",
     "I'm sorry, I can't do that, Dave", "Why is Gamora?!", "We are Groot", "For you...", "Hasta la vista, baby",
     "Let off some steam, Bennett!", "Ekki Ekki Ekki Ekki Ptang Zoom Boing!", "There are 10 types of people...",
@@ -30,15 +30,16 @@ var hTextList = [
     "The Dude abides", "I\'m a Dapper Dan man!", "You know what ol Jack Burton always says", "iddqd", "idkfa",
     "how do you turn this on?", "1.21 Gigawatts?!", "radio free zerg", "there is no cow level", "reticulating splines...",
     "removed Herobrine", "B A B A ↑ ↓ B A → ← B A start", "OMG, you killed Kenny!", "I am very confusing!",
-    "yep, that's a cow alright"
+    "yep, that\'s a cow alright", "Improsibru!", "Incontheivible!", "My name is Inigo Montoya", "The monkey\'s his uncle?",
+    "Great Scott!", "It\'s a trap!", "They cut the power!", "Nobody puts baby in the corner", "I am become death",
+    "That\'s no moon.", "Never tell me the odds.", "My precious...", "Developers! Developers! Developers!",
+    "Say herro to my rirrel fren", "I call these fun coupons!"
  ]
  
 var portfolio=[];
 
 var elTrack = 0; // used to keep track of p elements, so if we rearrange or insert new
-                  // elements, we don't have to reassing a ton of new element indexes
-
-                  
+                  // elements, we don't have to reassigning a ton of new element indexes                  
 
 // GoL CPP
 portfolio[elTrack++] = {

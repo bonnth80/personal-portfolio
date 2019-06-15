@@ -211,14 +211,14 @@ a:visited {
    margin: 8px;
 }
 
-#pview-dLink, #pview-gLink {
+#pview-dLink, #pview-gLink, #pview-demoLink {
    font-size: 24px;
    margin: 2px;
    color: #AAA;
    transition-duration: 200ms;
 }
 
-#pview-dLink:hover, #pview-gLink:hover {
+#pview-dLink:hover, #pview-gLink:hover, #pview-demoLink:hover {
    color: #444;
    transition-duration: 200ms;
 }
@@ -228,6 +228,11 @@ a:visited {
    margin-left: 20px;
    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
    transition-duration: 200ms;
+}
+
+#pview-clickDesc {
+   display: block;
+   margin-top: 18px;
 }
 
 textarea {

@@ -6,6 +6,7 @@ let portView = document.getElementById("entry-display");
 let splashText = document.getElementById("hometext");
 let splashTextB = document.getElementById("hometextB");
 let pviewHint = undefined;
+let pviewClickDesc = undefined;
 
 // *******************************************
 // Splash Text
@@ -46,9 +47,39 @@ for (let i = 0; i < portfolio.length; i++){
 // add click events to each item in nav pane
 for (let i = 0; i < lItems.length; i++) {
    lItems[i].addEventListener("click", function(obj){
-      portView.innerHTML = stringifyPData(Number(this.getAttribute("pindex")));
+      let strData = stringifyPData(Number(this.getAttribute("pindex")));
+      portView.innerHTML = strData.stringifedText;
+      portView.innerHTML += "<span id=\"pview-clickDesc\"></span>";
       pviewHint = document.getElementById("pview-clickHint");
-   })  
+      pviewClickDesc = document.getElementById("pview-clickDesc");
+
+      if (strData.hasDemo) {
+         document.getElementById("pview-demoLink").addEventListener("mouseenter", ()=>{
+            pviewClickDesc.innerHTML = "Web demo link";
+         })         
+         document.getElementById("pview-demoLink").addEventListener("mouseleave", ()=>{
+            pviewClickDesc.innerHTML = "";
+         })
+      }
+
+      if (strData.hasGH) {
+         document.getElementById("pview-gLink").addEventListener("mouseenter", ()=>{
+            pviewClickDesc.innerHTML = "Github Link";
+         })         
+         document.getElementById("pview-gLink").addEventListener("mouseleave", ()=>{
+            pviewClickDesc.innerHTML = "";
+         })
+      }
+
+      if (strData.hasDL) {
+         document.getElementById("pview-dLink").addEventListener("mouseenter", ()=>{
+            pviewClickDesc.innerHTML = "Download Link - may contain executable";
+         })         
+         document.getElementById("pview-dLink").addEventListener("mouseleave", ()=>{
+            pviewClickDesc.innerHTML = "";
+         })
+      }
+   }) 
 }
 
 // animate click hint sign
@@ -76,61 +107,74 @@ var clickHintAnim = setInterval(()=>{
 
 // turn portfolio data into html text
 function stringifyPData(pIndex) {
-   let str = "<div>\n"
-   let hasLinks = false;
+   let strData = {
+      stringifedText: "<div>\n",
+      hasLinks: false,
+      hasDemo: false,
+      hasGH: false,
+      hasDL: false
+   }
 
-   str += "<div id=\"pview-lineHead\">";
+   strData.stringifedText += "<div id=\"pview-lineHead\">";
 
    // Type Icons
-   str += "<div id=\"pview-types\">\n&nbsp&nbsp&nbsp";
+   strData.stringifedText += "<div id=\"pview-types\">\n&nbsp&nbsp&nbsp";
    portfolio[pIndex].tType.forEach(element => {
-      str += getTypeIcon(element) + " ";
+      strData.stringifedText += getTypeIcon(element) + " ";
    });
-   str+="</div>\n";
+   strData.stringifedText +="</div>\n";
 
    // Heading
-   str += "\t<div id=\"pview-heading\">" + portfolio[pIndex].pHeading + "</div>\n";
-   str += "\t<div id=\"pview-discipline\">" + portfolio[pIndex].discipline + "</div>\n";
-   //str += "\t<div id=\"pview-type\">" + portfolio[pIndex].tType + "</div>\n";
-   str += "</div>"
+   strData.stringifedText += "\t<div id=\"pview-heading\">" + portfolio[pIndex].pHeading + "</div>\n";
+   strData.stringifedText += "\t<div id=\"pview-discipline\">" + portfolio[pIndex].discipline + "</div>\n";
+   //strData.stringifedText += "\t<div id=\"pview-type\">" + portfolio[pIndex].tType + "</div>\n";
+   strData.stringifedText += "</div>"
 
 
    // Description
-   str += "\t<div id=\"pview-description\">" + portfolio[pIndex].pDesc + "</div>\n";
+   strData.stringifedText += "\t<div id=\"pview-description\">" + portfolio[pIndex].pDesc + "</div>\n";
 
    // code sample   
    if (portfolio[pIndex].ptCode != ""){
-      str += "\t<div id=\"pview-code\">Code Snippet:<br>\n\t\t<textarea id=\"pview-ctextbox\""; 
-      str += "spellcheck=\"false\" readonly>\n" +  portfolio[pIndex].ptCode + "\n\t\t</textarea>\n\t</div>\n";
+      strData.stringifedText += "\t<div id=\"pview-code\">Code Snippet:<br>\n\t\t<textarea id=\"pview-ctextbox\""; 
+      strData.stringifedText += "spellcheck=\"false\" readonly>\n" +  portfolio[pIndex].ptCode + "\n\t\t</textarea>\n\t</div>\n";
    }   
 
    // portfolio links
-   str += "\t<div id=\"pview-pLinks\">\n"
+   strData.stringifedText += "\t<div id=\"pview-pLinks\">\n"
 
    // direct link
    if ((portfolio[pIndex]).demoLink != ""){
-      hasLinks = true;
-      str += "\t\t<a id=\"pview-dLink\" href=\"" + (portfolio[pIndex]).demoLink + "\" target=\"_blank\"><i class=\"fas fa-external-link-alt\"></i></a>\n"
+      strData.hasLinks = true;
+      strData.hasDemo = true;
+      strData.stringifedText += "\t\t<a id=\"pview-demoLink\" class=\"pview-demoLink pview-link\" href=\"" + (portfolio[pIndex]).demoLink + "\" target=\"_blank\"><i class=\"fas fa-external-link-alt\"></i></a>\n";
    }
    // github link
    if ((portfolio[pIndex]).ghLink != ""){
-      hasLinks = true;
-      str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).ghLink + "\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n"
+      strData.hasLinks = true;
+      strData.hasGH = true;
+      strData.stringifedText += "\t\t<a id=\"pview-gLink\" class=\"pview-gLink pview-link\" href=\"" + (portfolio[pIndex]).ghLink + "\" target=\"_blank\"><i class=\"fab fa-github\"></i></a>\n";
 }
    // download link
    if ((portfolio[pIndex]).dlLink != ""){
-      hasLinks = true;
-      str += "\t\t<a id=\"pview-gLink\" href=\"" + (portfolio[pIndex]).dlLink + "\" target=\"_blank\"><i class=\"fas fa-file-download\"></i></a>\n"
+      strData.hasLinks = true;
+      strData.hasDL = true;
+      strData.stringifedText += "\t\t<a id=\"pview-dLink\" class=\"pview-dLink pview-link\" href=\"" + (portfolio[pIndex]).dlLink + "\" target=\"_blank\"><i class=\"fas fa-file-download\"></i></a>\n";
 }
    // click hint
-   if (hasLinks)
-      str += "<span id=\"pview-clickHint\"><i class=\"fas fa-arrow-left\"></i> Links here!</span>";
+   if (strData.hasLinks)
+      strData.stringifedText += "<span id=\"pview-clickHint\"><i class=\"fas fa-arrow-left\"></i> Links here!</span><br />";
 
-   str += "\t</div>\n"
+   // click Description
+   if (strData.hasLinks) {
+      strData.stringifedText += "<span id=\"pview-clickDesc\"></span>";
+   }
 
-   str += "</div>\n";
+   strData.stringifedText += "\t</div>\n"
 
-   return str;
+   strData.stringifedText += "</div>\n";
+
+   return strData;
 }
 
 // turn portfolio entry skill type into html display icons
