@@ -7,6 +7,7 @@ let splashText = document.getElementById("hometext");
 let splashTextB = document.getElementById("hometextB");
 let pviewHint = undefined;
 let pviewClickDesc = undefined;
+let iconPalette = document.getElementById("iconPalette");
 
 // *******************************************
 // Splash Text
@@ -83,27 +84,151 @@ for (let i = 0; i < lItems.length; i++) {
 }
 
 // animate click hint sign
-let animphase = 0;
+let hintAnimphase = 0;
 var clickHintAnim = setInterval(()=>{
    if (pviewHint != undefined){
       pviewHint.style.transitionDuration = "200ms";
       var clickHintMargin = "20px";
-      switch (animphase) {
+      switch (hintAnimphase) {
          case 0:
          case 2:
             pviewHint.style.marginLeft = (Number.parseInt(clickHintMargin) + 10) + "px";
-            animphase++;
+            hintAnimphase++;
             break;
          default:
             pviewHint.style.marginLeft = clickHintMargin;
-            animphase++;
+            hintAnimphase++;
             break;
          case 40:
             pviewHint.style.marginLeft = clickHintMargin;
-            animphase = 0;
+            hintAnimphase = 0;
       }
    }
 },200);
+
+// animate palette swap sign
+let paletteFound = false;
+let paletteAnimphase = 0;
+var paletteAnim = setInterval(()=>{
+   if (iconPalette != undefined && !paletteFound){
+      iconPalette.style.transitionDuration = "1000ms";
+      switch (paletteAnimphase) {
+         case 0:
+               iconPalette.style.textShadow = "-4px -4px 6px #044";
+               paletteAnimphase++;
+               break;
+         case 1:
+               iconPalette.style.textShadow = "0px 0px 24px #044";
+               paletteAnimphase++;
+               break;
+         case 2:
+            iconPalette.style.textShadow = "4px 4px 6px #044";
+            paletteAnimphase++;
+            break;
+         default:
+            iconPalette.style.textShadow = "0px 0px 0px #000";
+            paletteAnimphase++;
+            break;
+         case 20:
+            iconPalette.style.textShadow = "0px 0px 0px #000";
+            paletteAnimphase = 0;
+      }
+   }
+},400);
+
+// set random color theme
+iconPalette.addEventListener("click", ()=>{
+   if (!paletteFound){
+      paletteFound = true;
+      clearInterval(paletteAnim);
+      iconPalette.style.textShadow = "unset";
+   }
+   
+   var palette = generatePalette(7);
+   var x = 0;
+   
+   var currentColor = "";
+
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-bg", currentColor);
+  
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-text-heading", currentColor);  
+   
+   currentColor = colorToText(scaleRGB(palette[x],5/14));
+   document.documentElement.style.setProperty("--color-text-heading-ghost", currentColor);
+
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-text-main", currentColor);
+   
+   currentColor = colorToText(scaleRGB(palette[x],1/3));
+   document.documentElement.style.setProperty("--color-text-main-ghost", currentColor);
+   
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-text-highlight", currentColor);
+
+   currentColor = colorToText(scaleRGB(palette[x],8/13));
+   document.documentElement.style.setProperty("--color-text-lowlight", currentColor); 
+
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-field-highlight", currentColor);
+
+   currentColor = colorToText(interpolateRGB(palette[x],palette[0],1/2));
+   document.documentElement.style.setProperty("--color-field-lowlight", currentColor);
+
+   currentColor = colorToText(interpolateRGB(palette[x],palette[0],1/4));
+   document.documentElement.style.setProperty("--color-pane-fade", currentColor);
+
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-text-link-nonvisited", currentColor);
+
+   currentColor = colorToText(palette[x++]);
+   document.documentElement.style.setProperty("--color-text-link-visited", currentColor);
+   
+   document.documentElement.style.setProperty("--color-secret", palette[1]);
+})
+
+// color to Text
+function colorToText(cObj, alpha = 255) {
+   return ("rgb(" + cObj.colorR + ", " + cObj.colorG + ", " + cObj.colorB + "," + alpha + ")");
+}
+
+// scale brightness
+function scaleRGB(color, scaleFactor) {
+   var newC = {};
+   newC.colorR = Math.floor(color.colorR * scaleFactor);
+   newC.colorG = Math.floor(color.colorG * scaleFactor);
+   newC.colorB = Math.floor(color.colorB * scaleFactor);
+
+   return newC;
+}
+
+// get average of two rgbs with optional added weight
+function interpolateRGB(cObj1, cObj2, obj1Factor = 0.5) {
+   var newC = {};
+   newC.colorR = Math.floor(cObj1.colorR * obj1Factor + cObj2.colorR * (1-obj1Factor));
+   newC.colorG = Math.floor(cObj1.colorG * obj1Factor + cObj2.colorG * (1-obj1Factor));
+   newC.colorB = Math.floor(cObj1.colorB * obj1Factor + cObj2.colorB * (1-obj1Factor));
+
+   return newC;
+}
+
+// generate array of x random color strings with format: "rgb(<val>,<val>,<val>)"
+function generatePalette(x){
+   var paletteArray = [];
+   var colR = 0;
+   var colG = 0;
+   var colB = 0;
+   
+   for (var i = 0; i < x; i++){
+      colR =  Math.floor(Math.random() * 255);
+      colG =  Math.floor(Math.random() * 255);
+      colB =  Math.floor(Math.random() * 255);
+      paletteArray.push({colorR: colR, colorG: colG, colorB: colB});
+   }
+
+   return paletteArray;
+}
 
 // turn portfolio data into html text
 function stringifyPData(pIndex) {

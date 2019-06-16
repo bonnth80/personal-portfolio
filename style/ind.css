@@ -1,5 +1,22 @@
+:root {
+   --color-bg: #000;
+   --color-text-heading: #DDD;
+   --color-text-heading-ghost: #555; /* 5/14 of --color-text-heading */
+   --color-text-main: #BBB;
+   --color-text-main-ghost: #444; /* third of --color-text-main */
+   --color-text-lowlight: #888;   /* 8/13 of --color-text-highlight*/
+   --color-text-highlight: #DDD;
+   --color-field-lowlight: #222; /* half of --color-field-highlight*/
+   --color-field-highlight: #444;
+   --color-text-link-nonvisited: #FFF;
+   --color-text-link-visited: #AAA;
+   --color-pane-fade: #111;  /* quarter of --color-field-highlight */
+   --color-secret: #000;
+}
+
 body {
-   background-color: black;
+   transition-duration: 400ms;
+   background-color: var(--color-bg);
    margin: 0px;
 }
 
@@ -14,16 +31,16 @@ body {
 
 #nav-bar {
    font-size: 24px;
-   background-color:    black;
+   background-color:    var(--color-bg);
    padding-right: 12px;
    text-align: right;
    padding:             4px;
-   color:                rgb(255, 255, 255);
+   color:                var(--color-text-main);
 }
 
 #nav-bar a {
    text-decoration: none;
-   color:                rgb(255, 255, 255);
+   color:                var(--color-text-main);
 }
 
 #profLinks a {
@@ -32,7 +49,7 @@ body {
 
 #profLinks a:hover{
    transition-duration: 200ms;
-   color: #888;
+   color:      var(--color-text-lowlight);
 }
 
 /* #nav-bar a:hover{
@@ -47,7 +64,7 @@ body {
 #fnameA{
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 24px;
-   color: #444;
+   color:      var(--color-text-heading-ghost);
    transition-duration: 200ms;
    margin-bottom: -26px;
    margin-right: 4px;
@@ -56,12 +73,12 @@ body {
 #fnameB{
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 24px;
-   color: #DDD;
+   color:   var(--color-text-heading);
    transition-duration: 200ms;
 }
 
 #fnameB:hover{
-   color: #AAA;
+   color: var(--color-text-main);
    transition-duration: 200ms;
    margin-right: -8px;
 }
@@ -72,7 +89,7 @@ body {
 
 /* content */
 #content{
-   color: #AAA;
+   color: var(--color-text-main);
 }
 
 #left-navbar{
@@ -86,7 +103,7 @@ body {
    list-style-type: none;
    text-align: right;
    margin: 0px 4px 1px 2px;
-   background-image: linear-gradient(to right, black, #222);
+   background-image: linear-gradient(to right, var(--color-bg), var(--color-field-lowlight));
    padding: 8px 6px;
    transition-duration: 300ms;
 }
@@ -95,7 +112,7 @@ body {
    margin-right: 12px;
    transition-duration: 200ms;
    padding: 8px 12px;
-   background-image: linear-gradient(to right, black, #444);
+   background-image: linear-gradient(to right, var(--color-bg), var(--color-field-highlight));
    cursor: pointer;
 }
 
@@ -104,11 +121,11 @@ h2 {
 }
 
 a {
-   color: white;
+   color: var(--color-text-link-nonvisited);
 }
 
 a:visited {
-   color: #666;
+   color: var(--color-text-link-visited);
 }
 
 #entry-display{
@@ -119,15 +136,26 @@ a:visited {
    width: 600;
    margin: 0px;
    padding: 16px;
-   background-image: linear-gradient(to right, #111, black);
+   background-image: linear-gradient(to right, var(--color-pane-fade), var(--color-bg));
    height: 100%;
+}
+
+#cSwap {
+   font-size: 24px;
+   text-align: right;
+   padding-right: 20px;
+}
+
+#iconPalette {
+   cursor: pointer;
+   color: var(--color-secret);
 }
 
 #hometext {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 22px;
    text-align: center;
-   color: #444;
+   color: var(--color-text-main-ghost);
    width: 70%;
    transition-duration: 200ms;
    margin-bottom: -46px;
@@ -135,7 +163,7 @@ a:visited {
 }
 
 #hometextB {
-   color: #AAA;
+   color: var(--color-text-main);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 22px;
    text-align: center;
@@ -144,7 +172,7 @@ a:visited {
 }
 
 #hometextB:hover {
-   color: #CCC;
+   color: var(--color-text-heading);
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 22px;
    text-align: center;
@@ -158,12 +186,9 @@ a:visited {
    text-decoration: none;
 }
 
-
 /* portfolio entries */
-
-
 #pview-lineHead {
-   border-bottom: 1px solid #333;
+   border-bottom: 1px solid var(--color-field-highlight);
    padding: 6px 14px 6px 0px;
    display: block;
 }
@@ -172,19 +197,19 @@ a:visited {
    display: inline-block;
    width: 20%;
    font-size: 25px;
-   color: #DDD;
+   color: var(--color-text-main);
 }
 
 .pview-svgicon {
-   fill: #DDD;
-   stroke: #DDD;
+   fill: var(--color-text-main);
+   stroke: var(--color-text-main);
    height: 25px;
    width: 25px;
    vertical-align: top;
 }
 
-.pview-typeicon {
-}
+/* .pview-typeicon {
+} */
 
 #pview-heading {
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -192,7 +217,7 @@ a:visited {
    display: inline-block;
    width: 75%;
    text-align: right;
-   color: #DDD;
+   color: var(--color-text-main);
    /* background-image: linear-gradient(to left, #444, #222); */
 }
 
@@ -214,12 +239,12 @@ a:visited {
 #pview-dLink, #pview-gLink, #pview-demoLink {
    font-size: 24px;
    margin: 2px;
-   color: #AAA;
+   color:  var(--color-text-highlight);
    transition-duration: 200ms;
 }
 
 #pview-dLink:hover, #pview-gLink:hover, #pview-demoLink:hover {
-   color: #444;
+   color: var(--color-text-lowlight);
    transition-duration: 200ms;
 }
 
@@ -241,8 +266,8 @@ textarea {
    width: 100%;
    height: 200px;
    background-color  :rgba(0,0,0,0);
-   color: #9c9c9c;
-   border: 1px solid #333;
+   color: var(--color-text-lowlight);
+   border: 1px solid var(--color-field-highlight);
    border-radius: 8px;
    padding: 8px;
    white-space: pre;
@@ -260,17 +285,17 @@ textarea::-webkit-scrollbar {
  
  /* Track */
  textarea::-webkit-scrollbar-track {
-   background: #555; 
+   background: var(--color-field-lowlight); 
  }
   
  /* Handle */
  textarea::-webkit-scrollbar-thumb {
-   background: #AAA;
+   background: var(--color-text-lowlight);
    width: 14px;
  }
  
  /* Handle on hover */
  textarea::-webkit-scrollbar-thumb:hover {
-   background: #EEE;
+   background: var(--color-text-highlight);
    width: 14px;
  }
